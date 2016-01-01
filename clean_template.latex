@@ -1,0 +1,174 @@
+% BETTER ERROR MESSAGES
+\errorcontextlines 10000
+
+% DOCUMENT ATTRIBUTES
+\documentclass[10pt, a4paper, parskip=full]{article} % twoside can be added if two sided margin layout is desired
+\usepackage[a4paper,vmargin={30mm, 20mm},hmargin={30mm, 25mm},includeheadfoot]{geometry}
+\usepackage{amsmath}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+%\usepackage{totcount}
+%\renewcommand{\thesection}{\arabic{\c@section}.}
+%\newcommand{\thechapter}{\@Roman\c@chapter.}
+
+% DOCUMENT META INFORMATION
+\title{TITLE}
+\author{
+	AUTHOR\\
+	PROFESSION\\
+	INTITUTION\\
+	ADDRESS, CITY, COUNTRY
+    \and
+	(SECOND AUTHOR DETAILS)
+}
+\date{\today}
+
+% FONT
+\usepackage[xetex]{graphicx}
+\usepackage{fontspec,xunicode}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase} % what does this do? -- influences how quotes are rendered
+\setmainfont[Scale=1]{Open Sans}
+\setmonofont{Liberation Mono}
+\DeclareMathSizes{10}{10}{8}{7}
+%\DeclareMathSizes{<surrounding text size>}{<math text size>}{<math script size>}{<math scriptscript size>}.
+
+
+% CODE HIGHLIGHTING
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+
+	% \usepackage{color}
+	% \usepackage{fancyvrb}
+	% \newcommand{\VerbBar}{|}
+	% \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+	% \DefineVerbatimEnvironment{Highlighting}{Verbatim}{fontsize=\small,commandchars=\\\{\}}
+	% \newenvironment{Shaded}{\linespread{1}}{}
+	% \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+	% \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+	% \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+	% \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+	% \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+	% \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+	% \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+	% \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+	% \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+	% \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+	% \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+	% \newcommand{\RegionMarkerTok}[1]{{#1}}
+	% \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+	% \newcommand{\NormalTok}[1]{{#1}}
+
+
+% TABLES
+\usepackage{longtable}
+\usepackage{booktabs}
+
+% PREDEFINED COLORS
+\usepackage[dvipsnames]{xcolor}
+
+% LINKS
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=CadetBlue,
+	filecolor=Gray,
+	citecolor=Black,
+	linkcolor=Black
+}
+
+% FIGURES (wrapping text around figures, ...)
+\usepackage{wrapfig}
+\usepackage{float}
+
+% PARAGRAPH FORMATTING
+\setlength\parindent{0pt}
+
+% LANGUAGE SETTINGS (important for automatic breaking words)
+\usepackage[english, ngerman]{babel} % the last language in this line will be default for the document
+\selectlanguage{ngerman}
+
+
+
+% LAST PAGE NUMBER AVAILABILITY
+\usepackage{lastpage}
+
+% header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% HEADER
+\lhead{LEFT}
+\chead{CENTER}
+\rhead{RIGHT}
+
+% FOOTER
+\lfoot{LEFT}
+\cfoot{CENTER}
+\rfoot{Page \pageref{\thepage{}} of \pageref{LastPage}}
+%\rfoot{Page \thepage{} of \pageref{LastPage}}
+
+% DOTS ATER SECTION NUMBERS
+% \usepackage{titlesec}
+% \titlelabel{\thetitle.\quad}
+%\usepackage{titlesec}
+%\newcommand{\thechapter}{\arabic{chapter}.}
+%\renewcommand{\thesection}{\c@section\arabic{section}.}
+
+\usepackage{titlesec} % Textüberschriften anpassen
+% \titleformat
+% {⟨Überschriftenklasse⟩}
+% [Absatzformatierung⟩]
+% {⟨Textformatierung⟩} % \tiny, \scriptsize, \footnotesize, \small, \normalsize, \large, \Large, \LARGE, \huge, \Huge
+% {⟨Nummerierung⟩}
+% {⟨Abstand zwischen Nummerierung und Überschriftentext⟩}
+% {⟨Code vor der Überschrift⟩}
+% [⟨Code nach der Überschrift⟩]
+%\titleformat{\chapter}[hang]{\large\bfseries}{\thechapter.\quad}{0pt}{}{}
+\titleformat{\chapter}[hang]{\LARGE\bfseries}{\thechapter.\quad}{0pt}{}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\thesection.\quad}{0pt}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection.\quad}{0pt}{}
+\titleformat{\subsubsection}[hang]{\large}{\thesubsubsection\quad}{0pt}{}
+\titleformat{\paragraph}[hang]{\normalsize}{\theparagraph\quad}{0pt}{}
+
+%\fontsize{Fontgröße}{Grundlinienabstand}
+
+% \titlespacing{⟨Überschriftenklasse⟩}{⟨Linker Einzug⟩}{⟨Platz oberhalb⟩}{⟨Platz unterhalb⟩}[⟨rechter Einzug⟩]
+
+\titlespacing{\chapter}{0pt}{-3em}{6pt}
+\titlespacing{\section}{0pt}{6pt}{6pt}
+\titlespacing{\subsection}{0pt}{6pt}{6pt}
+\titlespacing{\subsubsection}{0pt}{6pt}{6pt}
+\setlength{\parskip}{\baselineskip}
+%\titlespacing{\paragraph}{0pt}{6pt}{6pt}
+
+
+
+% DOCUMENT
+\begin{document}
+
+\maketitle
+\newpage
+
+% TABLE OF CONTENTS
+$if(toc)$
+	$if(toc-depth)$
+		\setcounter{tocdepth}{$toc-depth$}
+	$else$
+		\setcounter{tocdepth}{2} % my default value
+	$endif$
+	\tableofcontents
+$endif$
+
+\newpage
+
+$body$
+
+\listoffigures
+\listoftables
+
+\end{document}
